@@ -250,8 +250,8 @@ The results confirm that the implementation meets all the specified objectives.
 
 ## References
 
-COJUHARI, I., DUCA, L., FIODOROV, I. *Formal Languages and Finite Automata: Guide for practical lessons.* Technical University of Moldova, 2022.
+[Formal Languages and Finite Automata: Guide for practical lessons](https://else.fcim.utm.md/pluginfile.php/110458/mod_resource/content/0/LFPC_Guide.pdf)
 
-Hopcroft, J. E., Motwani, R., Ullman, J. D. *Introduction to Automata Theory, Languages, and Computation.* 3rd Edition. Addison‑Wesley, 2006.
+[Introduction to Automata Theory, Languages, and Computation](https://dpvipracollege.ac.in/wp-content/uploads/2023/01/John-E.-Hopcroft-Rajeev-Motwani-Jeffrey-D.-Ullman-Introduction-to-Automata-Theory-Languages-and-Computations-Prentice-Hall-2006.pdf)
 
-*Finite-state machine – Wikipedia*
+[Finite-state machine – Wikipedia](https://en.wikipedia.org/wiki/Finite-state_machine)
