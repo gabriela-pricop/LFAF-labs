@@ -1,7 +1,7 @@
 ﻿# Intro to formal languages. Regular grammars. Finite Automata.
 
 ### Course: Formal Languages & Finite Automata
-### Author: Student Name
+### Author: Gabriela Pricop
 
 ---
 
@@ -255,4 +255,3 @@ COJUHARI, I., DUCA, L., FIODOROV, I. *Formal Languages and Finite Automata: Guid
 Hopcroft, J. E., Motwani, R., Ullman, J. D. *Introduction to Automata Theory, Languages, and Computation.* 3rd Edition. Addison‑Wesley, 2006.
 
 *Finite-state machine – Wikipedia*
-```
