@@ -283,7 +283,7 @@ static void Main()
 
 | Original NFA | Converted DFA |
 |--------------|---------------|
-| ![NFA](images\nfa.png) | ![DFA](images\dfa.png) |
+| ![NFA](images/nfa.png) | ![DFA](images/dfa.png) |
 
 
 The results demonstrate the successful implementation of the required conversions and confirm the theoretical relationships between finite automata and regular grammars.
