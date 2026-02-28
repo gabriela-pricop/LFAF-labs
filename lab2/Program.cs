@@ -1,57 +1,54 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
+using System.Collections.Generic;
 
-/* Variant 21:
-VN ={ S, B, C, D},
-VT ={ a, b, c}, 
-P ={
-    S → aB
-    B → bS
-    B → aC
-    B → b
-    C → bD
-    D → a
-    D → bC
-    D → cS
-}
-*/
+class Program
+{
+    static void Main()
+    {
+        // Variant 21 FA
+        var states = new HashSet<string> { "q0", "q1", "q2", "q3" };
+        var alphabet = new HashSet<string> { "a", "b", "c" };
+        var finalStates = new HashSet<string> { "q3" };
+        string startState = "q0";
 
-var nonTerminals = new HashSet<string> { "S", "B", "C", "D" };
-var terminals = new HashSet<string> { "a", "b", "c" };
-var productions = new Dictionary<string, List<string>>
+        var transitions = new Dictionary<string, Dictionary<string, HashSet<string>>>
         {
-            { "S", new List<string> { "aB" } },
-            { "B", new List<string> { "bS", "aC", "b" } },
-            { "C", new List<string> { "bD" } },
-            { "D", new List<string> { "a", "bC", "cS" } }
+            { "q0", new Dictionary<string, HashSet<string>>
+                {
+                    { "a", new HashSet<string> { "q0", "q1" } }
+                }
+            },
+            { "q1", new Dictionary<string, HashSet<string>>
+                {
+                    { "b", new HashSet<string> { "q2" } }
+                }
+            },
+            { "q2", new Dictionary<string, HashSet<string>>
+                {
+                    { "a", new HashSet<string> { "q2" } },
+                    { "c", new HashSet<string> { "q3" } }
+                }
+            },
+            { "q3", new Dictionary<string, HashSet<string>>
+                {
+                    { "c", new HashSet<string> { "q3" } }
+                }
+            }
         };
-string startSymbol = "S";
 
-Grammar grammar = new Grammar(nonTerminals, terminals, productions, startSymbol);
+        var fa = new FiniteAutomaton(states, alphabet, transitions, startState, finalStates);
 
-List<string> generatedWords = new List<string>();
-Console.WriteLine("Generated strings:");
-for (int i = 0; i < 5; i++)
-{
-    string word = grammar.GenerateString();
-    generatedWords.Add(word);
-    Console.WriteLine(word);
+        Console.WriteLine("Is Deterministic? " + fa.IsDeterministic());
+
+        var grammar = fa.ToRegularGrammar();
+        grammar.PrintGrammar();
+
+        var dfa = fa.ToDFA();
+        Console.WriteLine("DFA Deterministic? " + dfa.IsDeterministic());
+
+        fa.GenerateGraph("nfa_variant21");
+        dfa.GenerateGraph("dfa_variant21");
+
+        Console.ReadKey();
+    }
 }
-
-FiniteAutomaton fa = grammar.ToFiniteAutomaton();
-
-Console.WriteLine("\nChecking generated words:");
-foreach (string word in generatedWords)
-{
-    bool belongs = fa.StringBelongsToLanguage(word);
-    Console.WriteLine($"\"{word}\" -> {belongs}");
-}
-
-List<string> incorrectWords = new List<string> { "xyz", "abc", "aaa", "b", "c" };
-Console.WriteLine("\nChecking incorrect words:");
-foreach (string word in incorrectWords)
-{
-    bool belongs = fa.StringBelongsToLanguage(word);
-    Console.WriteLine($"\"{word}\" -> {belongs}");
-}
-
-Console.ReadKey();
