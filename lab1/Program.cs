@@ -1,21 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-/* Variant 21:
-VN ={ S, B, C, D},
-VT ={ a, b, c}, 
-P ={
-    S → aB
-    B → bS
-    B → aC
-    B → b
-    C → bD
-    D → a
-    D → bC
-    D → cS
-}
-*/
-
-var nonTerminals = new HashSet<string> { "S", "B", "C", "D" };
+﻿var nonTerminals = new HashSet<string> { "S", "B", "C", "D" };
 var terminals = new HashSet<string> { "a", "b", "c" };
 var productions = new Dictionary<string, List<string>>
         {
