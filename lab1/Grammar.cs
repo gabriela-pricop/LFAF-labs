@@ -36,7 +36,6 @@ public class Grammar
         var possible = productions[symbol];
         string chosen = possible[random.Next(possible.Count)];
 
-        //expansion: either terminal or non-terminal
         string result = "";
         foreach (char ch in chosen)
         {
@@ -45,7 +44,6 @@ public class Grammar
         return result;
     }
 
-    // conversion to NFA
     public FiniteAutomaton ToFiniteAutomaton()
     {
         HashSet<string> states = new HashSet<string>(nonTerminals) { "F" };

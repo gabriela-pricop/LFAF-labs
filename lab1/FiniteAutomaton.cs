@@ -21,7 +21,6 @@ public class FiniteAutomaton
         this.finalStates = finalStates;
     }
 
-    //check if string accepted
     public bool StringBelongsToLanguage(string inputString)
     {
         HashSet<string> currentStates = new HashSet<string> { initialState };
@@ -40,14 +39,12 @@ public class FiniteAutomaton
                 }
             }
 
-            //no transition -> out
             if (nextStates.Count == 0)
                 return false;
 
             currentStates = nextStates;
         }
 
-        //check if final state
         return currentStates.Overlaps(finalStates);
     }
 }

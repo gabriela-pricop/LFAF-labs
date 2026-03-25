@@ -244,8 +244,6 @@ Checking incorrect words:
 "c" -> False
 ```
 
-The results confirm that the implementation meets all the specified objectives.
-
 ---
 
 ## References
